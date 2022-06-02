@@ -39,12 +39,14 @@ actor Token{
 
   public shared(msg) func transfer(to: Principal, amout:Nat): async Text{
     let balance_from = await balance(msg.caller);
+    let balance_to = await balance(to);
+
     if (balance_from < amout) {
       return "You don't have enought money";
-    }
-
+    };
     balances.put(msg.caller,balance_from - amout);
-    balances.put(to,balances.get(to) + amout);
+    balances.put(to,balance_to + amout);
+    
     return "ok";
   };
 

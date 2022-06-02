@@ -3,6 +3,7 @@ export const idlFactory = ({ IDL }) => {
     'balance' : IDL.Func([IDL.Principal], [IDL.Nat], ['query']),
     'is_payed' : IDL.Func([IDL.Principal], [IDL.Bool], []),
     'payOut' : IDL.Func([], [IDL.Text], []),
+    'transfer' : IDL.Func([IDL.Principal, IDL.Nat], [IDL.Text], []),
   });
 };
 export const init = ({ IDL }) => { return []; };
