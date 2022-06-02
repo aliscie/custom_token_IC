@@ -1,19 +1,12 @@
 import { token } from "../../declarations/token";
+import { Principal } from "@dfinity/principal";
 
-document.querySelector("form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const button = e.target.querySelector("button");
+async function balance(){
+  const input  = document.querySelector('.input');
+  const p = Principal.fromText(input.value);
+  const balance  = await token.balance(p);
+  document.querySelector('.balance').innerHTML = `Your balance is ${balance.toLocaleString()}`;
+}
 
-  const name = document.getElementById("name").value.toString();
 
-  button.setAttribute("disabled", true);
-
-  // Interact with foo actor, calling the greet method
-  const greeting = await token.greet(name);
-
-  button.removeAttribute("disabled");
-
-  document.getElementById("greeting").innerText = greeting;
-
-  return false;
-});
+document.querySelector('.cehck_balance').addEventListener('click', balance);

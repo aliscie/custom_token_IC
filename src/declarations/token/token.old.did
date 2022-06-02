@@ -1,0 +1,5 @@
+service : {
+  balance: (principal) -> (nat) query;
+  is_payed: (principal) -> (bool);
+  payOut: () -> (text);
+}

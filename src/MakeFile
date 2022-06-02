@@ -1,0 +1,2 @@
+get_princile:
+	dfx identity get-principal
