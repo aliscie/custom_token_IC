@@ -4,6 +4,9 @@ import Debug "mo:base/Debug";
 import Iter "mo:base/Iter";
 
 actor Token{
+  Debug.print("hello");
+  Debug.print("hello2");
+
   var onwer: Principal = Principal.fromText("ug5r5-74qxz-4dkqw-bjx6f-2wlit-3pqay-unom3-memsb-xgv4t-ljf2z-sae");
   var totalSuply :Nat = 10**9;
 
